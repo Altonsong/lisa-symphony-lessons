@@ -1,24 +1,32 @@
+
+import { Link } from "react-router-dom";
+import ActionButton from "@/components/ActionButton";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+/**
+ * 404页面组件 - 当用户访问不存在的路径时显示
+ */
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
     console.error(
-      "404 Error: User attempted to access non-existent route:",
+      "404错误：用户尝试访问不存在的路径：",
       location.pathname
     );
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-[#F7F3E3]/30 px-4">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+        <h1 className="text-8xl font-bold text-[#5D2E46]">404</h1>
+        <p className="text-2xl text-gray-700 mt-4 mb-8">抱歉，您访问的页面不存在</p>
+        <Link to="/">
+          <ActionButton variant="primary" size="lg">
+            返回首页
+          </ActionButton>
+        </Link>
       </div>
     </div>
   );

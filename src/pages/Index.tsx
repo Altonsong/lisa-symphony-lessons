@@ -1,14 +1,11 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
+import Home from "./Home";
+
+/**
+ * 索引页面 - 重定向到Home组件
+ */
 const Index = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  return <Home />;
 };
 
 export default Index;
