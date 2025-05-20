@@ -5,20 +5,20 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * 导航组件 - 包含网站的主要导航链接
- * 具有响应式设计，在移动设备上显示汉堡菜单
+ * Navigation Component - Contains the main navigation links for the website
+ * Features responsive design with hamburger menu on mobile devices
  */
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // 切换菜单的开关状态
+  // Toggle menu open/close state
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
-  // 关闭菜单
+  // Close menu
   const closeMenu = () => setIsMenuOpen(false);
 
-  // 导航链接列表
+  // Navigation link list
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -37,7 +37,7 @@ const Navigation = () => {
             </Link>
           </div>
           
-          {/* 桌面端导航链接 */}
+          {/* Desktop navigation links */}
           <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
               <Link
@@ -55,7 +55,7 @@ const Navigation = () => {
             ))}
           </div>
           
-          {/* 移动端菜单按钮 */}
+          {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
@@ -69,7 +69,7 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* 移动端导航菜单 */}
+      {/* Mobile navigation menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">

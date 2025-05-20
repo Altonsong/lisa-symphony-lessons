@@ -4,16 +4,16 @@ import { useToast } from "@/hooks/use-toast";
 import ActionButton from "@/components/ActionButton";
 
 /**
- * 客户门户页面组件 - 显示登录/注册表单（静态版本）
- * 未来将实现实际的用户认证和课程预约功能
+ * Client Portal Page Component - Displays login/registration forms (static version)
+ * Will implement actual user authentication and appointment booking functionality in the future
  */
 const Portal = () => {
   const { toast } = useToast();
   
-  // 表单模式：登录或注册
+  // Form mode: login or register
   const [mode, setMode] = useState<"login" | "register">("login");
   
-  // 表单数据
+  // Form data
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -23,10 +23,10 @@ const Portal = () => {
     phone: "",
   });
   
-  // 加载状态
+  // Loading state
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // 处理表单输入变化
+  // Handle form input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -35,10 +35,10 @@ const Portal = () => {
     });
   };
 
-  // 切换表单模式（登录/注册）
+  // Toggle form mode (login/register)
   const toggleMode = () => {
     setMode(mode === "login" ? "register" : "login");
-    // 重置表单数据
+    // Reset form data
     setFormData({
       email: "",
       password: "",
@@ -49,24 +49,24 @@ const Portal = () => {
     });
   };
 
-  // 处理表单提交
+  // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // 模拟表单提交
+    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       
       if (mode === "login") {
         toast({
-          title: "登录提示",
-          description: "这是一个静态演示。实际的登录功能将在后续开发中实现。",
+          title: "Login Note",
+          description: "This is a static demonstration. Actual login functionality will be implemented in future development.",
         });
       } else {
         toast({
-          title: "注册提示",
-          description: "这是一个静态演示。实际的注册功能将在后续开发中实现。",
+          title: "Registration Note",
+          description: "This is a static demonstration. Actual registration functionality will be implemented in future development.",
         });
       }
     }, 1500);
@@ -78,24 +78,24 @@ const Portal = () => {
         <div className="max-w-md mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#5D2E46]">
-              {mode === "login" ? "客户登录" : "创建账户"}
+              {mode === "login" ? "Client Login" : "Create Account"}
             </h1>
             <p className="mt-4 text-gray-600">
               {mode === "login" 
-                ? "登录您的账户以预约课程和管理您的学习进度。" 
-                : "创建一个账户以开始您的音乐学习之旅。"}
+                ? "Log in to your account to book lessons and manage your learning progress." 
+                : "Create an account to begin your musical learning journey."}
             </p>
           </div>
           
           <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
             <form onSubmit={handleSubmit}>
-              {/* 注册表单特有字段 */}
+              {/* Registration form specific fields */}
               {mode === "register" && (
                 <>
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                        名字 *
+                        First Name *
                       </label>
                       <input
                         type="text"
@@ -109,7 +109,7 @@ const Portal = () => {
                     </div>
                     <div>
                       <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                        姓氏 *
+                        Last Name *
                       </label>
                       <input
                         type="text"
@@ -125,7 +125,7 @@ const Portal = () => {
                   
                   <div className="mb-4">
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                      电话号码 *
+                      Phone Number *
                     </label>
                     <input
                       type="tel"
@@ -140,10 +140,10 @@ const Portal = () => {
                 </>
               )}
               
-              {/* 通用表单字段 */}
+              {/* Common form fields */}
               <div className="mb-4">
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  电子邮箱 *
+                  Email Address *
                 </label>
                 <input
                   type="email"
@@ -158,7 +158,7 @@ const Portal = () => {
               
               <div className="mb-4">
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                  密码 *
+                  Password *
                 </label>
                 <input
                   type="password"
@@ -171,11 +171,11 @@ const Portal = () => {
                 />
               </div>
               
-              {/* 注册表单确认密码字段 */}
+              {/* Registration form confirm password field */}
               {mode === "register" && (
                 <div className="mb-4">
                   <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
-                    确认密码 *
+                    Confirm Password *
                   </label>
                   <input
                     type="password"
@@ -189,18 +189,18 @@ const Portal = () => {
                 </div>
               )}
               
-              {/* 登录表单忘记密码链接 */}
+              {/* Login form forgot password link */}
               {mode === "login" && (
                 <div className="flex justify-end mb-4">
                   <button 
                     type="button" 
                     className="text-sm text-[#5D2E46] hover:underline"
                     onClick={() => toast({
-                      title: "重置密码功能",
-                      description: "此功能将在后续开发中实现。",
+                      title: "Reset Password Feature",
+                      description: "This feature will be implemented in future development.",
                     })}
                   >
-                    忘记密码？
+                    Forgot Password?
                   </button>
                 </div>
               )}
@@ -213,10 +213,10 @@ const Portal = () => {
                   className="w-full"
                 >
                   {isSubmitting 
-                    ? "处理中..." 
+                    ? "Processing..." 
                     : mode === "login" 
-                      ? "登录" 
-                      : "创建账户"}
+                      ? "Log In" 
+                      : "Create Account"}
                 </ActionButton>
               </div>
             </form>
@@ -224,32 +224,32 @@ const Portal = () => {
             <div className="mt-6 text-center">
               <p className="text-gray-600">
                 {mode === "login" 
-                  ? "没有账户？" 
-                  : "已有账户？"}
+                  ? "Don't have an account?" 
+                  : "Already have an account?"}
                 <button 
                   type="button"
                   onClick={toggleMode}
                   className="ml-1 text-[#5D2E46] hover:underline"
                 >
-                  {mode === "login" ? "注册" : "登录"}
+                  {mode === "login" ? "Register" : "Log In"}
                 </button>
               </p>
             </div>
           </div>
           
           <div className="mt-8 bg-[#F7F3E3]/50 p-6 rounded-lg border border-[#F7F3E3]">
-            <h2 className="text-xl font-bold mb-4 text-[#5D2E46]">客户门户功能</h2>
+            <h2 className="text-xl font-bold mb-4 text-[#5D2E46]">Client Portal Features</h2>
             <p className="text-gray-700 mb-4">
-              这是一个静态演示。在完整版本中，客户门户将包含以下功能：
+              This is a static demonstration. In the full version, the client portal will include these features:
             </p>
             <ul className="list-disc pl-5 space-y-2 text-gray-700">
-              <li>学生账户注册和管理</li>
-              <li>课程预约和日程管理</li>
-              <li>与Google日历集成</li>
-              <li>查看和支付账单</li>
-              <li>在线学习资源获取</li>
-              <li>学习进度追踪</li>
-              <li>与老师直接沟通</li>
+              <li>Student account registration and management</li>
+              <li>Lesson booking and schedule management</li>
+              <li>Google Calendar integration</li>
+              <li>Invoice viewing and payment</li>
+              <li>Access to online learning resources</li>
+              <li>Progress tracking</li>
+              <li>Direct communication with the teacher</li>
             </ul>
           </div>
         </div>

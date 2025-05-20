@@ -1,6 +1,6 @@
 
 /**
- * 页脚组件 - 显示网站的版权信息和社交媒体链接
+ * Footer Component - Displays the website's copyright information and social media links
  */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
