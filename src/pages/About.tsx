@@ -1,12 +1,14 @@
 
 import { Link } from "react-router-dom";
 import ActionButton from "@/components/ActionButton";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 /**
  * About Page Component - Displays the teacher's personal introduction and background
+ * 关于页面组件 - 展示教师的个人介绍和背景
  */
 const About = () => {
-  // Education background
+  // Education background 教育背景
   const education = [
     {
       degree: "Bachelor of Music (Violin Performance)",
@@ -25,7 +27,7 @@ const About = () => {
     }
   ];
 
-  // Professional experience
+  // Professional experience 专业经验
   const experience = [
     {
       title: "Principal Violinist",
@@ -46,17 +48,18 @@ const About = () => {
 
   return (
     <div className="flex flex-col">
-      {/* Personal Introduction */}
+      {/* Personal Introduction 个人介绍 */}
       <section className="py-12 md:py-20 bg-[#F7F3E3]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="md:flex md:items-center md:space-x-12">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <div className="aspect-[4/5] bg-[#5D2E46]/10 rounded-lg relative overflow-hidden">
-                {/* Can be replaced with the teacher's actual photo */}
-                <div className="absolute inset-0 flex items-center justify-center text-[#5D2E46]">
-                  {/* Photo placeholder */}
-                  <p className="text-center px-4">Lisa's photo will be displayed here</p>
-                </div>
+              <div className="aspect-[4/5] bg-[#5D2E46]/5 rounded-lg relative overflow-hidden">
+                {/* Lisa's actual photo 使用Lisa的实际照片 */}
+                <img 
+                  src="/lovable-uploads/387a64e9-1338-4a66-8374-4463653533cb.png" 
+                  alt="Lisa with her violin" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             
@@ -81,11 +84,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* Education and Experience */}
+      {/* Education and Experience 教育和经验 */}
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Education background */}
+            {/* Education background 教育背景 */}
             <div>
               <h2 className="text-2xl font-serif font-bold text-[#5D2E46] mb-6">
                 Education
@@ -101,7 +104,7 @@ const About = () => {
               </div>
             </div>
             
-            {/* Professional experience */}
+            {/* Professional experience 专业经验 */}
             <div>
               <h2 className="text-2xl font-serif font-bold text-[#5D2E46] mb-6">
                 Professional Experience
@@ -120,7 +123,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Teaching Philosophy */}
+      {/* Teaching Philosophy 教学理念 */}
       <section className="py-12 md:py-16 bg-[#5D2E46]/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#5D2E46] text-center mb-8">
@@ -149,7 +152,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action 行动号召 */}
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#5D2E46]">

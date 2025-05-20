@@ -5,11 +5,12 @@ import ActionButton from "@/components/ActionButton";
 
 /**
  * Contact Page Component - Displays contact information and service areas, provides a form for inquiries
+ * 联系页面组件 - 显示联系信息和服务区域，提供询问表单
  */
 const Contact = () => {
   const { toast } = useToast();
   
-  // Form state
+  // Form state 表单状态
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,10 +19,10 @@ const Contact = () => {
     message: "",
   });
   
-  // Form loading state
+  // Form loading state 表单加载状态
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Service area list
+  // Service area list 服务区域列表
   const serviceAreas = [
     "Markham", 
     "Richmond Hill", 
@@ -32,7 +33,7 @@ const Contact = () => {
     "North York"
   ];
 
-  // Inquiry options
+  // Inquiry options 咨询选项
   const inquiryOptions = [
     "General Inquiry",
     "Schedule Trial Lesson",
@@ -41,7 +42,7 @@ const Contact = () => {
     "Other"
   ];
 
-  // Handle form input changes
+  // Handle form input changes 处理表单输入变化
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -50,12 +51,12 @@ const Contact = () => {
     });
   };
 
-  // Handle form submission
+  // Handle form submission 处理表单提交
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
+    // Simulate form submission 模拟表单提交
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
@@ -63,7 +64,7 @@ const Contact = () => {
         description: "We've received your message. Lisa will contact you soon!",
       });
       
-      // Reset form
+      // Reset form 重置表单
       setFormData({
         name: "",
         email: "",
@@ -76,7 +77,7 @@ const Contact = () => {
 
   return (
     <div className="flex flex-col">
-      {/* Contact Information */}
+      {/* Contact Information 联系信息 */}
       <section className="py-12 md:py-20 bg-[#F7F3E3]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -89,7 +90,7 @@ const Contact = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Form */}
+            {/* Contact Form 联系表单 */}
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <h2 className="text-xl font-bold mb-4 text-[#5D2E46]">Send a Message</h2>
               <form onSubmit={handleSubmit}>
@@ -185,18 +186,11 @@ const Contact = () => {
               </form>
             </div>
             
-            {/* Contact Information and Service Areas */}
+            {/* Contact Information and Service Areas 联系信息和服务区域 */}
             <div>
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 mb-6">
                 <h2 className="text-xl font-bold mb-4 text-[#5D2E46]">Contact Information</h2>
                 <div className="space-y-4">
-                  <div>
-                    <h3 className="font-medium text-[#5D2E46] mb-1">Studio Address</h3>
-                    <p className="text-gray-700">
-                      123 Melody Avenue<br />
-                      Markham, ON L3R 5X7
-                    </p>
-                  </div>
                   <div>
                     <h3 className="font-medium text-[#5D2E46] mb-1">Email</h3>
                     <p className="text-gray-700">lisa@symphonylessons.com</p>
@@ -211,6 +205,13 @@ const Contact = () => {
                       Monday to Friday: 10am - 8pm<br />
                       Saturday: 9am - 5pm<br />
                       Sunday: Closed
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-[#5D2E46] mb-1">Services</h3>
+                    <p className="text-gray-700">
+                      In-home lessons at your location<br />
+                      Online lessons via Zoom
                     </p>
                   </div>
                 </div>
@@ -233,22 +234,6 @@ const Contact = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Location (Placeholder) */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-serif font-bold text-[#5D2E46] text-center mb-8">
-            Studio Location
-          </h2>
-          <div className="aspect-[16/9] bg-gray-200 rounded-lg flex items-center justify-center">
-            <p className="text-center px-4">
-              Google Map Embed Here
-              <br />
-              <span className="text-sm text-gray-500">(Static version: Map will be added in a later phase)</span>
-            </p>
           </div>
         </div>
       </section>
